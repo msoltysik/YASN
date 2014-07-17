@@ -1,0 +1,17 @@
+#footer {
+    height:30px;
+    margin: 0;
+    clear: both;
+    width:100%;
+    position: relative;
+    text-align: center;
+    bottom: 10px;
+}
+
+.deeppink {
+    color: deeppink;
+}
+
+.seagreen {
+    color: black;
+}

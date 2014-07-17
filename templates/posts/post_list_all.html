@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+    <dl>
+    {% for post in object_list %}
+        <form method="post" action="{% url 'vote' %}" class="vote_form">
+            <dt> [ {{ post.votes }} ]
+                {% csrf_token %}
+                <input type="hidden" id="id_post" name="post" class="hidden_id" value="{{ post.pk }}" />
+                <input type="hidden" id="id_voter" name="voter" class="hidden_id" value="{{ user.pk }}" />
+                {% if user.is_authenticated %}
+                    {% if post.pk in voted %}
+                        <button><span class="glyphicon glyphicon glyphicon-thumbs-up deeppink"></span></button>
+                    {% else %}
+                        <button><span class="glyphicon glyphicon glyphicon-thumbs-up"></span></button>
+                    {% endif %}
+                {% endif %}
+            <b><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></b>
+                <a class="seagreen" href="{{ post.url }}" target="_blank">[URL]</a>
+            </dt>
+            <dd>{{ post.descriptions }}</dd>
+        </form>
+        {% endfor %}
+
+    </dl>
+
+    {% if is_paginated %}
+        <ul class="pager">
+        {% if page_obj.has_previous %}
+          <li class="previous"><a href="?page={{ page_obj.previous_page_number }}">&larr; Newer</a></li>
+        {% else %}
+          <li class="previous disabled"><a href="#">&larr; Newer</a></li>
+        {% endif %}
+
+        {% if page_obj.has_next %}
+            <li class="next"><a href="?page={{ page_obj.next_page_number }}">Older &rarr;</a></li>
+        {% else %}
+            <li class="next disabled"><a href="#">Older &rarr;</a></li>
+        {% endif %}
+        </ul>
+    {% endif %}
+    <script>
+    document.onkeydown = function(event) {
+        event = event || window.event;
+        switch (event.keyCode || event.which) {
+            case 37:
+                $("button.next").click();
+                break;
+            case 39:
+                $("next.a").click();
+
+                break;
+        }
+    };
+    $("li.active").removeClass("active");
+    $("li:eq(1)").addClass("active");
+    </script>
+{% endblock %}

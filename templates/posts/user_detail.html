@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Profil użytkownika {{ object.username }}</h2>
+    {% if object.userprofile.about %}
+        <p><b>O sobie:</b> {{ object.userprofile.about }}</p>
+    {% endif %}
+    {% if object.userprofile.website %}
+        <p><b>Strona domowa:</b> <a href="{{ object.userprofile.website }}">{{ object.userprofile.website }}</a></p>
+    {% endif %}
+
+    {% if object.username == user.username %}
+        <p><a href="{% url 'edit_profile' %}">Edit my profile</a></p>
+    {% endif %}
+
+
+    <script>
+        $("li.active").removeClass("active");
+        $("li:eq(3)").addClass("active");
+    </script>
+{% endblock %}
