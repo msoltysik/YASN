@@ -1,4 +1,7 @@
-YASN
+[![Build Status](https://travis-ci.org/msoltysik/YASN.svg?branch=master)](https://travis-ci.org/msoltysik/YASN)
+
+
+YASN 
 ====
 Yet Another [Social News](http://en.wikipedia.org/wiki/Social_news) website, written in django framework.
 
