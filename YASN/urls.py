@@ -34,4 +34,3 @@ urlpatterns = patterns(
         login_required(PostDeleteView.as_view()), name='post_delete'),
     url(r'^vote/$', login_required(VoteFormView.as_view()), name="vote"),
 )
-
