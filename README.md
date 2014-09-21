@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/msoltysik/YASN.svg?branch=master)](https://travis-ci.org/msoltysik/YASN)
-[![Coverage Status](https://img.shields.io/coveralls/msoltysik/YASN.svg)](https://coveralls.io/r/msoltysik/YASN)
+[![Coverage Status](https://img.shields.io/coveralls/msoltysik/YASN.svg)](https://coveralls.io/r/msoltysik/YASN?branch=development)
 
 YASN 
 ====
