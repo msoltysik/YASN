@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/msoltysik/YASN.svg?branch=master)](https://travis-ci.org/msoltysik/YASN)
 [![Coverage Status](https://coveralls.io/repos/msoltysik/YASN/badge.png?branch=development)](https://coveralls.io/r/msoltysik/YASN?branch=development)
-
+[![Code Climate](https://codeclimate.com/github/msoltysik/YASN/badges/gpa.svg)](https://codeclimate.com/github/msoltysik/YASN)
 
 YASN 
 ====
