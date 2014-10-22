@@ -9,8 +9,8 @@ from django.views.generic import ListView, DetailView, UpdateView, CreateView, \
 from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse, reverse_lazy
 
-from models import Post, UserProfile, Vote
-from forms import UserProfileForm, PostForm, VoteForm
+from .models import Post, UserProfile, Vote
+from .forms import UserProfileForm, PostForm, VoteForm
 
 number_votes_to_main = 1
 

@@ -14,7 +14,7 @@ class PostVoteCountManager(models.Manager):
 
 class Tag(models.Model):
     """ A specific Tag model in the webiste."""
-    slug = models.SlugField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100, unique=True, blank=False)
 
     def __unicode__(self):
         return self.slug
@@ -25,9 +25,9 @@ class Tag(models.Model):
 
 class Post(models.Model):
     """A specific Post model in the webiste."""
-    title = models.CharField('Title', max_length=100, blank=True)
-    author = models.ForeignKey(User)
-    url = models.URLField('URL', max_length=100, blank=True)
+    title = models.CharField('Title', max_length=100, blank=False)
+    author = models.ForeignKey(User, blank=False)
+    url = models.URLField('URL', max_length=100, blank=False)
     submitted_on = models.DateTimeField(auto_now_add=True)
     tags = models.ManyToManyField(Tag)
     descriptions = models.TextField('Descriptions', max_length=100)
@@ -45,11 +45,11 @@ class Post(models.Model):
 
 class Vote(models.Model):
     """ A specific Vote model in the website. """
-    voter = models.ForeignKey(User)
-    post = models.ForeignKey(Post)
+    voter = models.ForeignKey(User, blank=False)
+    post = models.ForeignKey(Post, blank=False)
 
     def __unicode__(self):
-        return "%s voted on %s" % (self.voter.username, self.post.title,)
+        return "%s voted on %s" % (self.voter.username, self.post.title)
 
 
 class UserProfile(models.Model):
@@ -59,7 +59,7 @@ class UserProfile(models.Model):
     website = models.URLField("My website", blank=True, max_length=150)
 
     def __unicode__(self):
-        return "Profil %s" % (self.user,)
+        return "Profil %s" % self.user
 
 
 def create_profile(**kw):
